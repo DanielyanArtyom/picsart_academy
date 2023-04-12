@@ -1,13 +1,14 @@
 1 -> Done
-31
+31 -> done
 34 -> done
 33 -> done
 136 -> Done
+189 -> done
 48
 35 -> done
 26 -> done
 118 -> done
-119
+119 -> done
 1470 -> done
 922 -> done
 1979 -> Done
