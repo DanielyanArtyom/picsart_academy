@@ -1,0 +1,14 @@
+53 -> done
+(Maximum subarray sum can be solved as the problem with stocks, assuming you already got differences between stocks.
+So imagine you have already diffed results, and you should find the maximum profit.
+The solution at the class without any indices is a valid solution for this problem. 
+Notice that in the problem 121(best time to buy and sell stock) we found the solution without subtracting the values)).
+Analyse and keep track of each iteration.  Follow the both algorithms step by step on the paper. Both are very important.
+
+153 -> done
+122 - this problem is NOT the same as maximum subarray problem.
+771 -> done
+1768 -> done
+2363 -> done
+1754 -> 
+75 -> done
