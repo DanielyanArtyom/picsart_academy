@@ -8,6 +8,7 @@ const maxSubArray = (nums) => {
 
   for (let i = 0; i < nums.length; ++i) {
     maximumOfelements += nums[i];
+    
     if (nums[i] > maximumOfelements) {
       maximumOfelements = nums[i];
     }

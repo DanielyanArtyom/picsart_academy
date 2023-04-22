@@ -8,6 +8,10 @@ const binarySearch = (nums) => {
   let end = nums.length - 1;
   let mid = 0;
 
+  if (nums[start] < nums[end]) {
+    return nums[start];
+  }
+
   while (start <= end) {
     mid = Math.floor(start + (end - start) / 2);
 
@@ -17,11 +21,11 @@ const binarySearch = (nums) => {
     if (nums[mid - 1] > nums[mid]) {
       return nums[mid];
     }
-    console.log("here", nums[mid]);
-    if (nums[end] > nums[mid]) {
+    if (nums[start] < nums[mid]) {
       end = mid - 1;
+      start = start + 1;
     } else {
-      start = mid + 1;
+      end = mid - 1;
     }
   }
   return nums[0];
@@ -31,4 +35,4 @@ const findMin = function (nums) {
   return binarySearch(nums);
 };
 
-console.log(findMin(test3));
+console.log(findMin(test1));
