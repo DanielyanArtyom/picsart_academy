@@ -1,0 +1,6 @@
+1. mergeSort -> done
+2. quick sort -> done
+3. randomized quick sort -> done
+4. counting -> done
+5. radix
+6. bucket sort
