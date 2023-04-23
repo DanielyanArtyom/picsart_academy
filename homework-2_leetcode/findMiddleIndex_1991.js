@@ -18,4 +18,23 @@ const findMiddleIndex = function (nums) {
   return -1;
 };
 
+const findMiddleIndex2 = function (nums) {
+  let left = 0;
+  // let right  nums - gumar@
+
+  for (let i = 0; i < nums.length; ++i) {
+    right -= nums[i];
+
+    if (right === left) {
+      return i;
+    }
+
+    left += nums[i];
+  }
+
+  return -1;
+};
+
+// nuyna inch 724
+
 console.log(findMiddleIndex(_test_1));

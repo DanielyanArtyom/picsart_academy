@@ -10,11 +10,8 @@ const maxProfit = function (prices) {
     if (prices[i] < prices[idx]) {
       idx = i;
     }
-
     const temp = prices[i] - prices[idx];
-
     currentMax = currentMax < temp ? temp : currentMax;
-
     ++i;
   }
 

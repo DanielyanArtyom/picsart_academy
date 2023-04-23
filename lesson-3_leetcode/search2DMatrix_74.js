@@ -62,6 +62,7 @@ const searchMatrix = function (matrix, target) {
   if (matrix.length === 1 && matrix[0].length === 1) {
     return matrix[0][0] === target;
   }
+  
   let _row = findRow(matrix, target);
 
   if (_row === true) {

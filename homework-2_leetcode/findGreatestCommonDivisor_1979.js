@@ -32,4 +32,6 @@ const findGCD = function (nums) {
   return divisor;
 };
 
+//gcd with recuesion, only divisor
+
 console.log(findGCD(_test_7));

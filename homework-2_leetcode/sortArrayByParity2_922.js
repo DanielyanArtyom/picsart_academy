@@ -55,5 +55,21 @@ const sortArrayByParityIIInPlace = function (nums) {
 
   return nums
 };
+
+
+const _sort = (nums) => {
+  let k = 0;
+  let j = 1
+  // permament
+  while(true) {
+    if(nums[k] % 2 === 0) {
+      k += 2
+    }  else {
+      //swap function here
+      // nums[k] with nums[j]
+      j += 2
+    }
+  }
+}
 // sortArrayByParityIIInPlace(_test_4);
 console.log(sortArrayByParityIIInPlace(_test_6));

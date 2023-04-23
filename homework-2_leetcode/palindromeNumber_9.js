@@ -9,23 +9,22 @@ const _test_5 = 2882
 
 
 //with string Method
-// const isPalindromeString = function (x) {
-//   const strValOriginal = `${x}`;
-//   let strVal = "";
+const isPalindromeString = function (x) {
+  const strValOriginal = `${x}`;
+  let strVal = "";
 
-//   for (let i = strValOriginal.length - 1; i >= 0; --i) {
-//     strVal += strValOriginal[i];
-//   }
-//   return strValOriginal === strVal;
-// };
+  for (let i = strValOriginal.length - 1; i >= 0; --i) {
+    strVal += strValOriginal[i];
+  }
+  return strValOriginal === strVal;
+};
 
 // tried to solve without converting to string
 let isPalindrome = function (x) {
-
   const _original = x;
   let _palindromeNumber = 0;
 
-  if (x < 0) {
+  if (x < 0 || x!== 0 && x % 10 === 0) {
     return false;
   }
   while (x > 0) {

@@ -77,4 +77,17 @@ const rotateThirdVariant = function (nums, k) {
   return nums;
 };
 
+const rotateThirdFourd = function (nums, k) {
+  if (k === 0 || k === nums.length || nums.length === 1) {
+    return nums;
+  }
+  k = k % nums.length;
+let arr = []
+for(let i = 0; i < nums.length; ++i) {
+  arr[(i+k) % n] = nums[i]
+}
+
+  return nums;
+};
+
 console.log(rotateThirdVariant(_test_1, _k_1));
