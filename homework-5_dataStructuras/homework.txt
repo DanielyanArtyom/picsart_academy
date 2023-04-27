@@ -1,0 +1,6 @@
+Stack -> done
+Queue -> done
+Dynamic Array -> progress
+Single Linked List  
+Double Linked List  
+Self-organizing Linked List  
