@@ -176,6 +176,43 @@ class SingleLinkList {
 
     this.#_head = prev;
   }
+
+  insertionSort() {
+    if (!this.#_head && !this.#_head.next) {
+      return null;
+    }
+    let current = this.#_head;
+    let sortedList = null;
+
+    while (current) {
+      if (!sortedList) {
+        sortedList = new Node(current.value, null);
+      } else {
+        if (current.value < sortedList.value) {
+          let newNode = new Node(current.value, sortedList);
+          sortedList = newNode;
+        } else {
+          let sortedCurrent = sortedList;
+
+          while (
+            sortedCurrent.next &&
+            current.value < sortedCurrent.next.value
+          ) {
+            sortedCurrent = sortedCurrent.next;
+          }
+
+          if (!sortedCurrent.next) {
+            sortedCurrent.next = new Node(current.value, null);
+          } else if (current.value < sortedCurrent.next.value) {
+            sortedCurrent = new Node(current.value, sortedCurrent.next);
+          }
+        }
+      }
+      current = current.next;
+    }
+
+    this.#_head = sortedList;
+  }
 }
 
 const newList = new SingleLinkList();
@@ -211,3 +248,6 @@ console.log("after removing", newList.printList());
 
 newList.reverseList();
 console.log("reverse", newList.printList());
+
+newList.insertionSort();
+console.log("insertionSort", newList.printList());

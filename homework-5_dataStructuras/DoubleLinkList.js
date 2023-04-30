@@ -185,25 +185,26 @@ class DoubleLinkList {
     }
   }
 
-    reverseList() {
-      if (!this.#_head && !this.#_head.next) {
-        return null;
-      }
-
-      let current = this.#_head;
-      let currentPrev = null;
-
-      while (current) {
-        currentPrev = current.prev;
-        current.prev = current.next;
-        current.next = currentPrev;
-        current = current.prev;
-      }
-      console.log(currentPrev);
-      if (currentPrev !== null) {
-        this.#_head = currentPrev;
-      }
+  reverseList() {
+    if (!this.#_head && !this.#_head.next) {
+      return null;
     }
+
+    let next = null;
+    let current = this.#_head;
+
+    let currentPrev = null;
+
+    while (current) {
+      currentPrev = current.prev;
+      current.prev = current.next;
+      current.next = next;
+      next = current;
+      current = currentPrev;
+    }
+
+    this.#_head = next;
+  }
 
   isEmpty() {
     return Boolean(!this.#_size);
