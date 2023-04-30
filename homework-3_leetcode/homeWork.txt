@@ -10,5 +10,5 @@ Analyse and keep track of each iteration.  Follow the both algorithms step by st
 771 -> done
 1768 -> done
 2363 -> done
-1754 -> 
+1754 -> done
 75 -> done
