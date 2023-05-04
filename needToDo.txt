@@ -2,6 +2,13 @@
 876. middle of the linked list -> done
 1290. Convert Binary Number in a Linked List to Integer -> Done
 20. Valid Parenthese  -> done
+203. remove linked list elements -> done
+19. Remove Nth Node From End of List -> done
+258. Add Digits   -> done
+92. reverse linked list 2  -> Done
+21. merge two sorted lists -> Done //debug
+1721. Swapping nodes in a linked list -> done
+61. rotate list -> done 
 
 bucket sort -> TODO
 Hayks comment about DS -> TODO
@@ -11,18 +18,10 @@ Hayks comment about DS -> TODO
 2390. Removing Stars from a String  -> TODO
 ---------------------------------------
 
-61. rotate list -> TODO 
-21. merge two sorted lists -> TODO
-
-92. reverse linked list 2  -> Done
 148. sort list -> TODO
 1669. Merge In Between Linked Lists -> TODO
-1721. Swapping nodes in a linked list -> TODO
 143. reorder list -> TODO
 328. Odd Even linked lists -> TODO 
-203. remove linked list elements -> TODO
-19. Remove Nth Node From End of List -> TODO
-258. Add Digits   -> done
 1046. Last Stone Weight -> TODO
 
 
