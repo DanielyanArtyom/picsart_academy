@@ -9,7 +9,7 @@ class Queue {
     if (!this._queue.length) {
       this._queue.push(element);
     } else {
-      this._queue = [...this._queue, element];
+      this._queue = [element, ...this._queue];
     }
   }
 

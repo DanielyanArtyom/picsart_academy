@@ -9,28 +9,28 @@ class Node {
 }
 
 class SingleLinkList {
-  #_head = null;
+  _head = null;
   #_size = null;
 
   constructor() {
-    this.#_head = null;
+    this._head = null;
     this.#_size = 0;
   }
 
   pushFirst(value) {
     let newNode = null;
-    if (!this.#_head) {
+    if (!this._head) {
       newNode = new Node(value, null);
     } else {
-      newNode = new Node(value, this.#_head);
+      newNode = new Node(value, this._head);
     }
-    this.#_head = newNode;
+    this._head = newNode;
   }
 
   pushBack(data) {
     let current = null;
-    if (!this.#_head) {
-      this.#_head = new Node(data, null);
+    if (!this._head) {
+      this._head = new Node(data, null);
     } else {
       current = this._head;
 
@@ -44,7 +44,7 @@ class SingleLinkList {
   }
 
   printList() {
-    let current = this.#_head;
+    let current = this._head;
     let str = "";
     while (current) {
       str += `${current.value}, `;
@@ -56,10 +56,10 @@ class SingleLinkList {
   pushBack(data) {
     let newElement = new Node(data, null);
     let current = null;
-    if (!this.#_head) {
-      this.#_head = newElement;
+    if (!this._head) {
+      this._head = newElement;
     } else {
-      current = this.#_head;
+      current = this._head;
       while (current.next) {
         current = current.next;
       }
@@ -70,11 +70,11 @@ class SingleLinkList {
   }
 
   popBack() {
-    if (!this.#_head) {
+    if (!this._head) {
       return null;
     }
 
-    let current = this.#_head;
+    let current = this._head;
 
     while (current.next.next) {
       current = current.next;
@@ -84,17 +84,17 @@ class SingleLinkList {
   }
 
   removeNode(target) {
-    if (!this.#_head) {
+    if (!this._head) {
       return null;
     }
 
-    if (this.#_head.value === target) {
-      this.#_head = this.#_head.next;
+    if (this._head.value === target) {
+      this._head = this._head.next;
       --this.#_size;
       return null;
     }
 
-    let current = this.#_head;
+    let current = this._head;
 
     while (current.next && current.next.value !== target) {
       current = current.next;
@@ -111,15 +111,15 @@ class SingleLinkList {
   }
 
   searchElement(target) {
-    if (!this.#_head) {
+    if (!this._head) {
       return null;
     }
 
-    if (this.#_head.value === target) {
-      return this.#_head;
+    if (this._head.value === target) {
+      return this._head;
     }
 
-    let current = this.#_head;
+    let current = this._head;
 
     while (current.value !== target && current.next) {
       current = current.next;
@@ -134,18 +134,18 @@ class SingleLinkList {
     }
 
     ++this.#_size;
-    if (!this.#_head) {
-      this.#_head = new Node(value, null);
+    if (!this._head) {
+      this._head = new Node(value, null);
       return null;
     }
 
     if (!position) {
-      let newNode = new Node(value, this.#_head);
-      this.#_head = newNode;
+      let newNode = new Node(value, this._head);
+      this._head = newNode;
       return null;
     }
 
-    let current = this.#_head;
+    let current = this._head;
     let findPosition = 0;
 
     while (findPosition !== position - 1 && current.next) {
@@ -174,11 +174,11 @@ class SingleLinkList {
   }
 
   reverseList() {
-    if (!this.#_head && !this.#_head.next) {
+    if (!this._head && !this._head.next) {
       return null;
     }
 
-    let current = this.#_head;
+    let current = this._head;
 
     let prev = null;
     let next = null;
@@ -190,14 +190,14 @@ class SingleLinkList {
       current = next;
     }
 
-    this.#_head = prev;
+    this._head = prev;
   }
 
   insertionSort() {
-    if (!this.#_head && !this.#_head.next) {
+    if (!this._head && !this._head.next) {
       return null;
     }
-    let current = this.#_head;
+    let current = this._head;
     let sortedList = null;
 
     while (current) {
@@ -227,7 +227,61 @@ class SingleLinkList {
       current = current.next;
     }
 
-    this.#_head = sortedList;
+    this._head = sortedList;
+  }
+
+  getMiddle(head) {
+    if (!head) {
+      return head;
+    }
+    let slow = head;
+    let fast = head;
+
+    while (fast.next && fast.next.next) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+
+    return slow;
+  }
+
+  sortList(head) {
+    if (!head || !head.next) {
+      return head;
+    }
+
+    let middle = this.getMiddle(head);
+
+    let nextOfMiddle = middle.next;
+    middle.next = null;
+
+    let left = this.sortList(head);
+    let right = this.sortList(nextOfMiddle);
+    let sortedList = this.merge(left, right);
+
+    return sortedList;
+  }
+
+  merge(list1, list2) {
+    let result = null;
+
+    if (!list1) {
+      return list2;
+    }
+
+    if (!list2) {
+      return list1;
+    }
+
+    if (list1.value <= list2.value) {
+      result = list1;
+      result.next = this.merge(list1.next, list2);
+    } else {
+      result = list2;
+      result.next = this.merge(list1, list2.next);
+    }
+
+    return result;
   }
 
   #mergeTwoLists = function (list1, list2) {
@@ -237,7 +291,7 @@ class SingleLinkList {
     if (!list2) {
       return list1;
     }
-    if (list1.val < list2.val) {
+    if (list1.value < list2.value) {
       list1.next = mergeTwoLists(list1.next, list2);
       return list1;
     } else {
@@ -281,5 +335,9 @@ console.log("after removing", newList.printList());
 newList.reverseList();
 console.log("reverse", newList.printList());
 
-newList.insertionSort();
-console.log("insertionSort", newList.printList());
+// newList.insertionSort();
+// console.log("insertionSort", newList.printList());
+
+newList.sortList(newList._head);
+
+console.log("sortList", newList.printList());
