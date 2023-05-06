@@ -1,7 +1,5 @@
 class Queue {
   _queue = null;
-  _front = null;
-  _back = null;
 
   constructor() {
     this._queue = [];
@@ -10,12 +8,8 @@ class Queue {
   push(element) {
     if (!this._queue.length) {
       this._queue.push(element);
-      this._back = element;
-      this._front = element;
     } else {
       this._queue = [...this._queue, element];
-      this._back = this._queue[0];
-      this._front = element;
     }
   }
 
@@ -24,14 +18,13 @@ class Queue {
       return null;
     }
     this._queue.pop();
-    this._front = this._queue[this._queue.length - 1];
   }
 
   front() {
-    return this._front;
+    return this._queue[0];
   }
   back() {
-    return this._back;
+    return this._queue[this._queue.length - 1];
   }
 
   size() {
@@ -40,8 +33,6 @@ class Queue {
 
   empty() {
     this._queue = [];
-    this.front = null;
-    this.back = null;
   }
 }
 

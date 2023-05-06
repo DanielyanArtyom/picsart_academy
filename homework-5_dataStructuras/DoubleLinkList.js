@@ -153,8 +153,9 @@ class DoubleLinkList {
 
     ++this.#_size;
     if (!this.#_head && !this.#_tail) {
-      this.#_head = new Node(value, null, null);
-      this.#_tail = new Node(value, null, null);
+      const newNode = new Node(value, null, null);
+      this.#_head = newNode;
+      this.#_tail = newNode;
       return null;
     }
 
@@ -191,19 +192,17 @@ class DoubleLinkList {
     }
 
     let next = null;
+    let prev = null;
     let current = this.#_head;
 
-    let currentPrev = null;
-
     while (current) {
-      currentPrev = current.prev;
-      current.prev = current.next;
-      current.next = next;
-      next = current;
-      current = currentPrev;
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
     }
 
-    this.#_head = next;
+    this.#_head = prev;
   }
 
   isEmpty() {

@@ -27,6 +27,22 @@ class SingleLinkList {
     this.#_head = newNode;
   }
 
+  pushBack(data) {
+    let current = null;
+    if (!this.#_head) {
+      this.#_head = new Node(data, null);
+    } else {
+      current = this._head;
+
+      while (current.next) {
+        current = current.next;
+      }
+      let newElement = new Node(data, null);
+      current.next = newElement;
+    }
+    ++this.#_size;
+  }
+
   printList() {
     let current = this.#_head;
     let str = "";
