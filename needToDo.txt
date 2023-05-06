@@ -9,24 +9,29 @@
 21. merge two sorted lists -> Done //debug
 1721. Swapping nodes in a linked list -> done
 61. rotate list -> done 
+147. insertion sort -> done
+86. partition list -> Done
 
 bucket sort -> TODO
 Hayks comment about DS -> TODO
-152. Maximum Product Subarray -> TODO
-86. partition list -> Progress
-147. insertion sort -> TODO
-2390. Removing Stars from a String  -> TODO
+152. Maximum Product Subarray -> Progress
+
+
+
 ---------------------------------------
 
+2390. Removing Stars from a String  -> TODO
 148. sort list -> TODO
 1669. Merge In Between Linked Lists -> TODO
-143. reorder list -> TODO
-328. Odd Even linked lists -> TODO 
-1046. Last Stone Weight -> TODO
-
+143. reorder list -> TODO use array to solve.
+328. Odd Even linked lists -> TODO  user partition technic to solve.
+238.   -> Progress
 
 --------------------------------------
 81. Search in Rotated Sorted Array 2 -> TODO
+
 225. Implement Stack using Queues -> TODO
 232. Implement Queue using Stacks -> TODO
+
 25. reverse nodes in k groups -> TODO
+1046. Last Stone Weight -> TODO
