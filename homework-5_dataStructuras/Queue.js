@@ -17,7 +17,15 @@ class Queue {
     if (!this._queue.length) {
       return null;
     }
-    this._queue.pop();
+    let tmpArray = new Array(this._queue.length - 1).fill(0);
+    for (let i = 1; i < this._queue.length; ++i) {
+      tmpArray[i - 1] = this._queue[i];
+    }
+
+    let poppendElement = this._queue[0];
+
+    this._queue = tmpArray;
+    return poppendElement;
   }
 
   front() {
@@ -28,6 +36,7 @@ class Queue {
   }
 
   size() {
+    console.log(this._queue);
     return this._queue.length;
   }
 
@@ -35,23 +44,3 @@ class Queue {
     this._queue = [];
   }
 }
-
-const queue = new Queue();
-console.log("start", queue._queue);
-queue.push(5);
-queue.push(125);
-queue.push(4);
-queue.push(35);
-
-console.log("push", queue._queue);
-
-console.log("back", queue.back());
-console.log("front", queue.front());
-
-queue.pop();
-queue.pop();
-queue.pop();
-queue.pop();
-queue.pop();
-
-console.log("pop", queue._queue);
