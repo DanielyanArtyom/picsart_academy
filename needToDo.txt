@@ -11,27 +11,22 @@
 61. rotate list -> done 
 147. insertion sort -> done
 86. partition list -> Done
-
-bucket sort -> TODO
-Hayks comment about DS -> TODO
-152. Maximum Product Subarray -> Progress
-
-
-
+Hayks comment about DS -> Done
+328. Odd Even linked lists -> Done  user partition technic to solve.
+143. reorder list -> Done use array to solve.
+2390. Removing Stars from a String  -> Done 
+152. Maximum Product Subarray -> Done
+238.   -> Done
+225. Implement Stack using Queues -> done
+232. Implement Queue using Stacks -> done
+1046. Last Stone Weight -> Done
+1669. Merge In Between Linked Lists -> Done
+81. Search in Rotated Sorted Array 2 -> Done
 ---------------------------------------
 
-2390. Removing Stars from a String  -> TODO
-148. sort list -> TODO
-1669. Merge In Between Linked Lists -> TODO
-143. reorder list -> TODO use array to solve.
-328. Odd Even linked lists -> TODO  user partition technic to solve.
-238.   -> Progress
-
---------------------------------------
-81. Search in Rotated Sorted Array 2 -> TODO
-
-225. Implement Stack using Queues -> TODO
-232. Implement Queue using Stacks -> TODO
 
 25. reverse nodes in k groups -> TODO
-1046. Last Stone Weight -> TODO
+148. sort list -> progress
+bucket sort -> TODO
+--------------------------------------
+
