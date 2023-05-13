@@ -312,6 +312,50 @@ class SelfOrganizingLinkList {
   isEmpty() {
     return !!this._size;
   }
+
+  reverseNodes = (start, end) => {
+    let previous = start.prev;
+    let next = end.next;
+    start.prev = end;
+    end.prev = previous;
+    start.next = next;
+    end.next = start;
+    if (end.prev) {
+      end.prev.next = end;
+    }
+    return end;
+  };
+
+  getNode(value) {
+    if (this._head.value === value) {
+      return this._head;
+    }
+
+    if (this._tail.value === value) {
+      let tmpTail = this._tail;
+      let newTail = this.reverseNodes(this._tail.prev, tmpTail);
+      this._tail = newTail;
+      return tmpTail;
+    }
+
+    let current = this._head;
+
+    while (current.next) {
+      if (current.next.value === value) {
+        let tmpNext = current.next;
+        let node = this.reverseNodes(current, current.next);
+
+        if (!node.prev) {
+          this._head = node;
+        }
+
+        return tmpNext;
+      }
+      current = current.next;
+    }
+
+    return "there is no such element";
+  }
 }
 
 const newList = new SelfOrganizingLinkList();
@@ -338,13 +382,24 @@ newList.pushBack(9);
 // console.log("Smallest pushBack: ", newList.printFromSmallest());
 // console.log("Tail pushBack: ", newList.printFromTail());
 
-newList.popBack();
+// newList.popBack();
 // newList.popBack();
 // newList.popBack();
 
-newList.removeNode(2);
+// newList.removeNode(2);
 
-console.log("Head popBack : ", newList.printFromHead());
-console.log("Greatest popBack : ", newList.printFromGreates());
-console.log("Smallest popBack: ", newList.printFromSmallest());
-console.log("Tail popBack: ", newList.printFromTail());
+console.log("Head before : ", newList.printFromHead());
+
+newList.getNode(5);
+newList.getNode(5);
+newList.getNode(5);
+newList.getNode(5);
+newList.getNode(5);
+
+newList.getNode(9);
+newList.getNode(9);
+
+newList.getNode(2);
+// newList.getNode(9);
+
+console.log("Head getElement : ", newList.printFromHead());

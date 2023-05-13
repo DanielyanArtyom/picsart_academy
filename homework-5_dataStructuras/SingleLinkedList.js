@@ -269,13 +269,16 @@ class SingleLinkList {
     if (!list2) {
       return list1;
     }
-    if (list1.value < list2.value) {
-      list1.next = mergeTwoLists(list1.next, list2);
-      return list1;
+
+    let result = null;
+    if (list1.value <= list2.value) {
+      result = list1;
+      result.next = this.merge(list1.next, list2);
     } else {
-      list2.next = mergeTwoLists(list1, list2.next);
-      return list2;
+      result = list2;
+      result.next = this.merge(list1, list2.next);
     }
+    return result;
   }
 
   #mergeTwoLists = function (list1, list2) {
