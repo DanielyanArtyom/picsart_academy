@@ -22,11 +22,10 @@ Hayks comment about DS -> Done
 1046. Last Stone Weight -> Done
 1669. Merge In Between Linked Lists -> Done
 81. Search in Rotated Sorted Array 2 -> Done
+25. reverse nodes in k groups -> Done
+148. sort list -> Done
 ---------------------------------------
 
-
-25. reverse nodes in k groups -> TODO
-148. sort list -> progress
 bucket sort -> TODO
 --------------------------------------
 

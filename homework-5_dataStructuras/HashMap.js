@@ -13,30 +13,80 @@ class Entry {
 class HashMap {
   _size = null;
   _storage = null;
+  _loadFactor = null;
 
   constructor() {
     this._size = 0;
     this._storage = Array(10).fill(null);
+    _loadFactor = 0;
   }
 
   #hash(key) {
     let hash = 0;
+
+    if (typeof key === "number") {
+      while (key >= this._storage.length) {
+        key %= this._storage.length;
+      }
+      return key;
+    }
+
     for (let i = 0; i < key.length; i++) {
       hash += key.charCodeAt(i);
     }
     return hash % this._storage.length;
   }
 
-  set(key, value) {
+  // set(key, value) {
+  //   let idx = this.#hash(key);
+  //   let newEntry = null;
+  //   let currentEntry = null;
+  //   if (!this._storage[idx]) {
+  //     newEntry = new Entry(key, value, null);
+  //     this._storage[idx] = newEntry;
+  //   } else {
+  //     currentEntry = this._storage[idx];
+  //     newEntry = new Entry(key, value, null);
+
+  //     while (currentEntry.next) {
+  //       currentEntry = currentEntry.next;
+  //     }
+  //     currentEntry.next = newEntry;
+  //   }
+  // }
+
+  // delete(key, target) {
+  //   if (!this._storage.length) {
+  //     return "Storage is Empty";
+  //   }
+  //   let idx = this.#hash(key);
+
+  //   if (!this._storage[idx]) {
+  //     return "There is no such element";
+  //   }
+
+  //   while (currentEntry.next && currentEntry.next.value !== target) {
+  //     currentEntry = currentEntry.next;
+  //   }
+
+  //   if (!currentEntry.next) {
+  //     return "There is no such element";
+  //   }
+  //   currentEntry.next = currentEntry.next.next;
+  // }
+
+  set(key) {
+    ++this._loadFactor;
     let idx = this.#hash(key);
     let newEntry = null;
     let currentEntry = null;
+
     if (!this._storage[idx]) {
-      newEntry = new Entry(key, value, null);
+      newEntry = new Entry(key, null);
       this._storage[idx] = newEntry;
     } else {
       currentEntry = this._storage[idx];
-      newEntry = new Entry(key, value, null);
+      newEntry = new Entry(key, null);
 
       while (currentEntry.next) {
         currentEntry = currentEntry.next;
@@ -45,7 +95,7 @@ class HashMap {
     }
   }
 
-  delete(key, target) {
+  delete(key) {
     if (!this._storage.length) {
       return "Storage is Empty";
     }
@@ -54,8 +104,20 @@ class HashMap {
     if (!this._storage[idx]) {
       return "There is no such element";
     }
+    --this._loadFactor;
+    let currentEntry = this._storage[idx];
 
-    while (currentEntry.next && currentEntry.next.value !== target) {
+    if (currentEntry.key === key) {
+      if (!currentEntry.next) {
+        this._storage[idx] = null;
+        return null;
+      }
+
+      currentEntry = currentEntry.next;
+      return null;
+    }
+
+    while (currentEntry.next && currentEntry.next.key !== key) {
       currentEntry = currentEntry.next;
     }
 
@@ -87,11 +149,12 @@ class HashMap {
 
 const hashMap = new HashMap();
 
-hashMap.set("Target", 10);
-hashMap.set("Target1", 3);
-hashMap.set("Target2", 15);
-hashMap.set("Target2", 32);
-hashMap.set("Target2", 1);
-hashMap.set("Target2", 7);
+hashMap.set("Target");
+hashMap.set("Target1");
+hashMap.set("Target2");
+hashMap.set("Target2");
+hashMap.set("Target2");
+hashMap.set("Target2");
 
-console.log(hashMap.get("Target2"));
+hashMap.delete("Target");
+console.log(hashMap._storage);
