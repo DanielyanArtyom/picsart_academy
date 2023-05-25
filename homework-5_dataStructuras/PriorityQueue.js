@@ -46,6 +46,22 @@ class MaxPriorityQueue {
     return this._heap[0];
   }
 
+  buildMaxHeap(array) {
+    this._heap = array;
+    this._heapSize = array.length;
+    for (let i = Math.floor(array.length / 2); i >= 0; --i) {
+      this.#maxHeapify(this._heap, i);
+    }
+  }
+
+  heapSort(array) {
+    this.buildMaxHeap(array);
+    for (let i = array.length; i >= 1; --i) {
+      this.#swap(array[0], array[i]);
+      this.#maxHeapify(array, 0);
+    }
+  }
+
   #maxHeapify(array, idx) {
     let left = this.#getLeft(idx);
     let right = this.#getRight(idx);
@@ -60,23 +76,6 @@ class MaxPriorityQueue {
     if (largest !== idx) {
       this.#swap(largest, idx);
       this.#maxHeapify(array, largest);
-    }
-  }
-
-  #minHeapify(array, idx) {
-    let left = this.#getLeft(idx);
-    let right = this.#getRight(idx);
-
-    let smallest = idx;
-
-    if (left < array.length && array[left] < array[idx]) {
-      smallest = left;
-    } else if (right < array.length && array[right] < array[idx]) {
-      smallest = right;
-    }
-    if (smallest !== idx) {
-      this.#swap(smallest, idx);
-      this.#minHeapify(array, smallest);
     }
   }
 
@@ -101,17 +100,20 @@ class MaxPriorityQueue {
 
 maxPriority = new MaxPriorityQueue();
 
-maxPriority.insert(5);
-maxPriority.insert(22);
-maxPriority.insert(1);
-maxPriority.insert(7);
-maxPriority.insert(0);
-maxPriority.insert(10);
-maxPriority.insert(30);
-maxPriority.insert(15);
+// maxPriority.insert(5);
+// maxPriority.insert(22);
+// maxPriority.insert(1);
+// maxPriority.insert(7);
+// maxPriority.insert(0);
+// maxPriority.insert(10);
+// maxPriority.insert(30);
+// maxPriority.insert(15);
 
-console.log(maxPriority._heap);
+// console.log(maxPriority._heap);
 
-maxPriority.extractMax();
+// maxPriority.extractMax();
 
+// console.log(maxPriority._heap);
+
+maxPriority.heapSort([2, 22, 5, 1, 7, 0, 10]);
 console.log(maxPriority._heap);
